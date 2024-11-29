@@ -1,0 +1,143 @@
+<div>
+  <div>
+    <div>
+      <h1>Crear Usuario</h1>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm" novalidate>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            class="form-control"
+            required
+            minlength="2"
+            maxlength="20"
+            name="nombre"
+            [(ngModel)]="usuario.nombre"
+            #nombre="ngModel"
+          />
+          <!--div de validaciones Alerts-->
+          <div
+            *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+            class="text-danger"
+          >
+            <small *ngIf="nombre.errors?.['required']">
+              El nombre es obligatorio</small
+            >
+            <small *ngIf="nombre.errors?.['minlength']"
+              >El nombre debe tener mas de 2 caracteres</small
+            >
+            <small *ngIf="nombre.errors?.['maxlength']"
+              >El nombre debe tener menos de 20 caracteres</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apellidos">Apellidos</label>
+          <input
+            type="text"
+            id="apellidos"
+            class="form-control"
+            required
+            name="apellidos"
+            [(ngModel)]="usuario.apellidos"
+            #ape="ngModel"
+          />
+          <!--div de validaciones Alerts-->
+          <div
+            *ngIf="ape.invalid && (ape.dirty || ape.touched)"
+            class="text-danger"
+          >
+            <small *ngIf="ape.errors?.['required']">
+              El Apellido es obligatorio</small
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tipoDocumento">Tipo de documento</label>
+          <select
+            id="tipoDocumento"
+            class="form-control"
+            required
+            name="tipoDocumento"
+            [(ngModel)]="usuario.tipoDocumento"
+            #tipoDoc="ngModel"
+          >
+            <option *ngFor="let tipo of tipoDocumento" [value]="tipo">
+              {{ tipo }}
+            </option>
+          </select>
+          <!-- Validaciones -->
+          <div
+            *ngIf="tipoDoc.invalid && (tipoDoc.dirty || tipoDoc.touched)"
+            class="text-danger"
+          >
+            <small *ngIf="tipoDoc.errors?.['required']"
+              >El Tipo de Documento es obligatorio</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="correoElectronico">Correo Electrónico</label>
+          <input
+            type="email"
+            id="correoElectronico"
+            class="form-control"
+            required
+            email
+            name="correoElectronico"
+            [(ngModel)]="usuario.correoElectronico"
+            #mail="ngModel"
+          />
+          <!--div de validaciones Alerts-->
+          <div
+            *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+            class="text-danger"
+          >
+            <small *ngIf="mail.errors?.['required']">
+              El correo electrónico es obligatorio</small
+            >
+            <small *ngIf="mail.errors?.['email']">
+              El correo electrónico no tiene el formato solicitado</small
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="celular">Celular</label>
+          <input
+            type="number"
+            id="celular"
+            class="form-control"
+            required
+            pattern="^[0-9]{10}"
+            name="celular"
+            [(ngModel)]="usuario.celular"
+            #celular="ngModel"
+          />
+          <!--div de validaciones Alerts-->
+          <div
+            *ngIf="celular.invalid && (celular.dirty || celular.touched)"
+            class="text-danger"
+          >
+            <small *ngIf="celular.errors?.['required']">
+              El celular es obligatorio</small
+            >
+            <small *ngIf="celular.errors?.['pattern']">
+              El celular debe tener 10 digitos</small
+            >
+          </div>
+
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="userForm.invalid"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
