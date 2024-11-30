@@ -1,6 +1,6 @@
-<div>
-  <div>
-    <div>
+<div class="container">
+  <div class="row">
+    <div class="col">
       <h1>Crear Usuario</h1>
       <form (ngSubmit)="onSubmit()" #userForm="ngForm" novalidate>
         <div class="form-group">
@@ -54,6 +54,7 @@
             >
           </div>
         </div>
+
         <div class="form-group">
           <label for="tipoDocumento">Tipo de documento</label>
           <select
@@ -75,6 +76,28 @@
           >
             <small *ngIf="tipoDoc.errors?.['required']"
               >El Tipo de Documento es obligatorio</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="documento">Documento</label>
+          <input
+            type="text"
+            id="documento"
+            class="form-control"
+            required
+            name="documento"
+            [(ngModel)]="usuario.documento"
+            #documento="ngModel"
+          />
+          <!--div de validaciones Alerts-->
+          <div
+            *ngIf="documento.invalid && (documento.dirty || documento.touched)"
+            class="text-danger"
+          >
+            <small *ngIf="documento.errors?.['required']">
+              El documento es obligatorio</small
             >
           </div>
         </div>
@@ -104,6 +127,37 @@
             >
           </div>
         </div>
+
+        <div class="form-group">
+          <label for="contrasenia">Contraseña</label>
+          <input
+            type="password"
+            id="contrasenia"
+            class="form-control"
+            required
+            minlength="8"
+            maxlength="10"
+            name="contrasenia"
+            [(ngModel)]="usuario.contrasenia"
+            #contrasenia="ngModel"
+          />
+          <!--div de validaciones Alerts-->
+          <div
+            *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched)"
+            class="text-danger"
+          >
+            <small *ngIf="contrasenia.errors?.['required']">
+              La contrasenia es obligatoria</small
+            >
+            <small *ngIf="contrasenia.errors?.['minlength']"
+              >La contrasenia debe tener mas de 8 caracteres</small
+            >
+            <small *ngIf="contrasenia.errors?.['maxlength']"
+              >La contrasenia debe tener menos de 10 caracteres</small
+            >
+          </div>
+        </div>
+        
         <div class="form-group">
           <label for="celular">Celular</label>
           <input
@@ -128,6 +182,54 @@
               El celular debe tener 10 digitos</small
             >
           </div>
+        </div>
+
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input
+              type="number"
+              id="edad"
+              class="form-control"
+              required
+              min="1"
+              name="edad"
+              [(ngModel)]="usuario.edad"
+              #edad="ngModel"
+            />
+            <!--div de validaciones Alerts-->
+            <div
+              *ngIf="edad.invalid && (edad.dirty || edad.touched)"
+              class="text-danger"
+            >
+              <small *ngIf="edad.errors?.['required']">
+                La edad es obligatorio</small
+              >
+              <small *ngIf="edad.errors?.['min']">
+                La edad debe ser mayor a 0
+              </small>
+            </div>
+        </div>
+
+          <div class="form-group">
+              <label for="rol">Rol</label>
+              <select
+                id="rol"
+                class="form-control"
+                required
+                name="rol"
+                [(ngModel)]="usuario.rol"
+                #rol="ngModel"
+              >
+                <option [ngValue]="null" disabled selected>Seleccione un rol</option>
+                <option *ngFor="let rol of roles" [ngValue]="rol">
+                  {{ rol.nombre }}
+                </option>
+              </select>
+              <!-- Validaciones -->
+              <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="text-danger">
+                <small *ngIf="rol.errors?.['required']">El rol es obligatorio</small>
+              </div>
+          </div>
 
           <button
             class="btn btn-success"
@@ -136,7 +238,6 @@
           >
             Enviar
           </button>
-        </div>
       </form>
     </div>
   </div>

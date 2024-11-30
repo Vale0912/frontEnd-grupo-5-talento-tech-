@@ -11,6 +11,11 @@ export enum TipoDocumento {
   NIT = 'NIT'
 }
 
+export interface Rol {
+  idRol: number;
+  nombre: string
+}
+
 export interface Usuario {
   idUsuario: number;
   tipoDocumento: TipoDocumento;
@@ -21,7 +26,7 @@ export interface Usuario {
   contrasenia:string;
   edad: number;
   celular: number;
-  rol: string;
+  rol: Rol;
 }
 
 @Injectable({

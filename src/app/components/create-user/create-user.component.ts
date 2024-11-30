@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { TipoDocumento, Usuario, UsuarioService } from '../../usuario.service';
+import { RolService } from '../../rol.service';
 
 @Component({
   selector: 'app-create-user',
@@ -11,7 +12,9 @@ import { TipoDocumento, Usuario, UsuarioService } from '../../usuario.service';
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css'
 })
-export class CreateUserComponent {
+
+export class CreateUserComponent implements OnInit{
+    roles: any[] = []; // Lista de roles obtenida del backend
     usuario: Usuario = {
       idUsuario: 0,
       tipoDocumento: TipoDocumento.CEDULA_CIUDADANIA,
@@ -22,13 +25,14 @@ export class CreateUserComponent {
       contrasenia:'',
       edad: 0,
       celular: 0,
-      rol: ''
+      rol: { idRol: 0, nombre: '' }
     }
+
 
      // Opciones de tipoDocumento basadas en el enum
     tipoDocumento = Object.values(TipoDocumento); // ['CC', 'TI', 'CE', 'PAS', 'RC', 'NIT']
 
-    constructor(private usuarioService: UsuarioService, private router:Router){}
+    constructor(private usuarioService: UsuarioService, private router:Router, private rolService: RolService){}
 
     onSubmit():void{
       this.usuarioService.createUser(this.usuario).subscribe({
@@ -43,4 +47,11 @@ export class CreateUserComponent {
         }
       })
     }
-}
+
+    ngOnInit(): void {
+      // Cargar los roles al inicializar el componente
+      this.rolService.getRoles().subscribe((data) => {
+        this.roles = data;
+      });
+    }
+} 
