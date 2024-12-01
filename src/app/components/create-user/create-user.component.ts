@@ -2,8 +2,11 @@ import { Component, OnInit} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { TipoDocumento, Usuario, UsuarioService } from '../../usuario.service';
-import { RolService } from '../../rol.service';
+import { UsuarioService } from '../../services/usuario.service';
+import { TipoDocumento } from '../../models/tipoDocumento';
+import { Usuario } from '../../models/usuario';
+import { Rol } from '../../models/rol';
+import { RolService } from '../../services/rol.service';
 
 @Component({
   selector: 'app-create-user',

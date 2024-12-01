@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmprendedorComponent } from './components/emprendedor/emprendedor.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmprendedorComponent,
     CreateUserComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
