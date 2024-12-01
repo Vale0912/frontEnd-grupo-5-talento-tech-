@@ -17,7 +17,7 @@ import { RolService } from '../../services/rol.service';
 })
 
 export class CreateUserComponent implements OnInit{
-    roles: any[] = []; // Lista de roles obtenida del backend
+    roles: Rol[] = []; // Lista de roles obtenida del backend
     usuario: Usuario = {
       idUsuario: 0,
       tipoDocumento: TipoDocumento.CEDULA_CIUDADANIA,
@@ -49,12 +49,14 @@ export class CreateUserComponent implements OnInit{
           alert("Hubo un error al crear el usuario")
         }
       })
+      console.log(this.usuario)
     }
 
     ngOnInit(): void {
       // Cargar los roles al inicializar el componente
       this.rolService.getRoles().subscribe((data) => {
         this.roles = data;
+        console.log(this.roles)
       });
     }
 } 

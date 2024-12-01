@@ -61,7 +61,7 @@
           <select
             placeholder = 'Seleccione un tipo de documento'
             id="tipoDocumento"
-            class="form-control"
+            class="form-select"
             required
             name="tipoDocumento"
             [(ngModel)]="usuario.tipoDocumento"
@@ -149,13 +149,13 @@
             class="text-danger"
           >
             <small *ngIf="contrasenia.errors?.['required']">
-              La contrasenia es obligatoria</small
+              La contraseña es obligatoria</small
             >
             <small *ngIf="contrasenia.errors?.['minlength']"
-              >La contrasenia debe tener mas de 8 caracteres</small
+              >La contraseña debe tener mas de 8 caracteres</small
             >
             <small *ngIf="contrasenia.errors?.['maxlength']"
-              >La contrasenia debe tener menos de 10 caracteres</small
+              >La contraseña debe tener menos de 10 caracteres</small
             >
           </div>
         </div>
