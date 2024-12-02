@@ -1,4 +1,4 @@
-import { TipoDocumento } from "./tipoDocumento";
+import { TipoDocumento } from "../enum/tipoDocumento";
 import { Rol } from "./rol";
 
 export interface Usuario {
