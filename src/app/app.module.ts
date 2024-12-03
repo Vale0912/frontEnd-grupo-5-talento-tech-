@@ -15,6 +15,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HeaderComponent } from './components/header/header.component';
 import { CreateEmprendimientoComponent } from './components/create-emprendimiento/create-emprendimiento.component';
+import { AuthComponent } from './auth/auth.component';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { CreateEmprendimientoComponent } from './components/create-emprendimient
 
     HeaderComponent,
     CreateEmprendimientoComponent,
+    AuthComponent,
 
   ],
   imports: [
