@@ -4,10 +4,12 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { HomeComponent } from './home/home.component';
 import { EmprendedorComponent } from './components/emprendedor/emprendedor.component';
 import { CreateEmprendimientoComponent } from './components/create-emprendimiento/create-emprendimiento.component';
+import { VerDetalleComponent } from './components/ver-detalle/ver-detalle.component';
 
 const routes: Routes = [
-  {path: "createUser", component: CreateUserComponent},
-  {path: "home", component: HomeComponent},
+  { path: "", component: HomeComponent },
+  { path: "createUser", component: CreateUserComponent },
+  { path: 'ver-detalle', component: VerDetalleComponent },
   {path: "emprendedor", component: EmprendedorComponent},
   {path: "createEmprendimiento", component: CreateEmprendimientoComponent}
 

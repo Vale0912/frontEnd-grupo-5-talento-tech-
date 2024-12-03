@@ -1,0 +1,52 @@
+
+<app-navbar></app-navbar>
+<div class="emprendimientos-container">
+  <div *ngIf="proyecto" class="container mt-5">
+    <div class="row">
+      <!-- Contenedor de la información a la izquierda -->
+      <div class="col-md-6" style="padding: 20px;">
+        <h1 class="card-title" style="font-size: 2rem; color: #2ecc71; font-weight: bold;">{{ proyecto.titulo }}</h1>
+        <p class="card-text" style="font-size: 1.1rem; margin-bottom: 15px; font-weight: 500;">{{ proyecto.descripcion }}</p>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Ubicación:</strong> {{ proyecto.ubicacion }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Rendimiento:</strong> {{ proyecto.rendimiento }}%</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Monto Requerido:</strong> ${{ proyecto.montoRequerido }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Estado:</strong> {{ proyecto.estado ? 'Activo' : 'Inactivo' }}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Fecha de Inversión:</strong> {{ proyecto.fechaInversion }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Emprendedor:</strong> {{ proyecto.idEmprendedor }}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Sector:</strong> {{ proyecto.idSector }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen del proyecto a la derecha -->
+      <div class="col-md-6" style="padding: 0;">
+        <img [src]="proyecto.urlImagen" class="img-fluid" alt="Imagen del proyecto" style="width: 100%; height: 100vh; object-fit: cover; border-radius: 10px;">
+      </div>
+    </div>
+  </div>
+</div>
+
