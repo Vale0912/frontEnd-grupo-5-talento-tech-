@@ -8,6 +8,9 @@ import { EmprendedorComponent } from './components/emprendedor/emprendedor.compo
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { VerDetalleComponent } from './components/ver-detalle/ver-detalle.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { HomeComponent } from './home/home.component';
     EmprendedorComponent,
     CreateUserComponent,
     HomeComponent,
+    NavbarComponent,
+    VerDetalleComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

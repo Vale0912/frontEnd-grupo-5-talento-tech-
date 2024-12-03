@@ -1,0 +1,47 @@
+/* Estilos generales para el contenedor */
+.emprendimientos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Estilo para la imagen */
+img {
+  border-radius: 10px; /* Bordes redondeados en la imagen */
+  object-fit: cover; /* Asegura que la imagen ocupe todo el espacio sin distorsionarse */
+  height: 100vh; /* Hace que la imagen ocupe toda la altura de la pantalla */
+  width: 100%; /* Hace que la imagen ocupe el 100% del contenedor */
+}
+
+/* Estilo del contenedor del texto */
+.container {
+   /* Fondo oscuro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 2rem;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.card-text strong {
+  color: #2ecc71;
+}
+
+/* Estilo de las filas dentro del texto */
+.row {
+  margin-bottom: 10px;
+}
+
+.col-md-6 p {
+  margin: 5px 0;
+}
