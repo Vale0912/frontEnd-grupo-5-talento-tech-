@@ -1,0 +1,46 @@
+.card {
+    margin-top: 2rem ;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-body {
+    background-color: #f9f9f9;
+  }
+  
+  /* Elimina los puntos de la lista */
+.list-unstyled {
+    list-style-type: none; /* Elimina los marcadores (puntos) de la lista */
+    padding-left: 0; /* Elimina cualquier sangría predeterminada */
+  }
+  
+  .imagen-sin-borde {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Esto asegura que el contenedor de las cards se llene de la pantalla y esté centrado */
+.container {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+  }
+
+h2 {
+    text-align: center;
+}
+
+.subcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+  

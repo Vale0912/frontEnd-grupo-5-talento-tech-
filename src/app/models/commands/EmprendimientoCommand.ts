@@ -1,6 +1,4 @@
-import { Sector } from "./sector";
-export interface Emprendimiento {
-    idEmprendimiento: number;
+export interface EmprendimientoCommand {
     titulo: string;
     descripcion: string;
     ubicacion: string;
@@ -10,5 +8,5 @@ export interface Emprendimiento {
     urlImagen: string;
     fechaInversion: string;
     idEmprendedor: number;
-    idSector: Sector;
+    idSector: number;
 }
