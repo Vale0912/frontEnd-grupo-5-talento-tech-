@@ -8,6 +8,8 @@ import { EmprendedorComponent } from './components/emprendedor/emprendedor.compo
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CreateEmprendimientoComponent } from './components/create-emprendimiento/create-emprendimiento.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { HomeComponent } from './home/home.component';
     EmprendedorComponent,
     CreateUserComponent,
     HomeComponent,
+    HeaderComponent,
+    CreateEmprendimientoComponent,
   ],
   imports: [
     BrowserModule,

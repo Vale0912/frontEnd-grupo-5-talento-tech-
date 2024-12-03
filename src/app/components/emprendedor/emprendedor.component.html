@@ -1,4 +1,34 @@
-<p>Bienvenido al Home</p>
-<div>
-    
+<!-- src/app/emprendimientos/emprendimientos.component.html -->
+<div *ngIf="cargando">Cargando...</div>
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+<div class="container my-5">
+    <div class="row">
+    <div class="subcontainer">
+        <h2>Estos son tus emprendimientos publicados</h2>
+        <a class="btn btn-primary" (click)="router.navigate(['/createEmprendimiento'])">Agregar emprendimiento</a>
+    </div>
+      <ul *ngIf="!cargando && emprendimientos.length > 0" class="list-unstyled">
+        <li *ngFor="let emprendimiento of emprendimientos" class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="card" style="width: 18rem;">
+            <img *ngIf="emprendimiento.urlImagen" [src]="emprendimiento.urlImagen" class="card-img-top imagen-sin-borde" alt="Imagen de emprendimiento" />
+            <div class="card-body">
+              <h5 class="card-title">{{ emprendimiento.titulo }}</h5>
+              <p class="card-text">{{ emprendimiento.descripcion }}</p>
+              <ul class="list-unstyled">
+                <li><strong>Ubicación:</strong> {{ emprendimiento.ubicacion }}</li>
+                <li><strong>Rendimiento:</strong> {{ emprendimiento.rendimiento }}%</li>
+                <li><strong>Monto Requerido:</strong> ${{ emprendimiento.montoRequerido }}</li>
+                <li><strong>Estado:</strong> {{ emprendimiento.estado ? 'Activo' : 'Inactivo' }}</li>
+                <li><strong>Fecha de Inversión:</strong> {{ emprendimiento.fechaInversion }}</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>    
+  
+<div *ngIf="!cargando && emprendimientos.length === 0">
+  <p>No se encontraron emprendimientos para este emprendedor.</p>
 </div>

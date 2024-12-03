@@ -220,6 +220,7 @@
                 required
                 name="rol"
                 [(ngModel)]="usuario.rol"
+                (change) = 'onRoleChange()'
                 #rol="ngModel"
               >
                 <option [ngValue]="null" disabled selected>Seleccione un rol</option>
@@ -231,6 +232,31 @@
               <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="text-danger">
                 <small *ngIf="rol.errors?.['required']">El rol es obligatorio</small>
               </div>
+          </div>
+          <!-- Campos específicos para Inversionista -->
+          <div *ngIf="isInversionista" class="form-group">
+            <label for="capitalDisponible">Capital Disponible</label>
+            <input
+              type="number"
+              id="capitalDisponible"
+              class="form-control"
+              [(ngModel)]="inversionista.capitalDisponible"
+              name="capitalDisponible"
+              required
+            />
+          </div>
+
+          <!-- Campos específicos para Emprendedor -->
+          <div *ngIf="isEmprendedor" class="form-group">
+            <label for="experiencia">Experiencia</label>
+            <input
+              type="number"
+              id="experiencia"
+              class="form-control"
+              [(ngModel)]="emprendedor.experiencia"
+              name="experiencia"
+              required
+            />
           </div>
           <div class="d-flex justify-content-center">
             <button
