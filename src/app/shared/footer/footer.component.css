@@ -7,10 +7,10 @@ body {
 }
 
 .footer {
-  margin-top: auto;
+  margin-top: 20px;
   width: 100%;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   background-color: #000; /* Fondo oscuro */
   color: white; /* Texto blanco */
 }
