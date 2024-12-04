@@ -19,4 +19,8 @@ export class SectorService {
       map(response => response.data) // Extrae la propiedad 'data', que es un array
     );
   }
+
+  getSectorById(idSector: number): Observable<Sector>{
+    return this.http.get<{data: Sector}>(`${this.BASE_URL}/sector/${idSector}`).pipe(map(response => response.data));
+}
 }

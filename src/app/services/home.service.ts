@@ -5,6 +5,7 @@ import { Emprendimiento } from '../models/emprendimiento';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 import { EmprendimientoCommand } from '../models/commands/EmprendimientoCommand';
+import { Emprendedor } from '../models/emprendedor';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,8 @@ export class HomeService {
   getEmprendimientosByEmprendedor(idEmprendedor: number): Observable<Emprendimiento[]>{
     return this.http.get<{data: Emprendimiento[]}>(`${this.BASE_URL}/emprendimiento/por-emprendedor/${idEmprendedor}`).pipe(map(response => response.data));
   }
+
+  getEmprendedorById(idEmprendedor: number): Observable<Emprendedor>{
+    return this.http.get<{data: Emprendedor}>(`${this.BASE_URL}/emprendedor/${idEmprendedor}`).pipe(map(response => response.data));
+}
 }
