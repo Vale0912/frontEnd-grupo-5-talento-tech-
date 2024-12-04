@@ -26,8 +26,7 @@ export class CreateEmprendimientoComponent implements OnInit{
       montoRequerido:0,
       estado: true,
       urlImagen: '',
-      fechaInversion: '',
-      idEmprendedor:0,
+      idEmprendedor:1,
       idSector: {idSector: 0, nombre:''},
     }
 
@@ -44,11 +43,27 @@ export class CreateEmprendimientoComponent implements OnInit{
         montoRequerido: this.emprendimiento.montoRequerido,
         estado: this.emprendimiento.estado,
         urlImagen: this.emprendimiento.urlImagen,
-        fechaInversion:this.emprendimiento.fechaInversion,
         idEmprendedor: this.emprendimiento.idEmprendedor,
-        idSector: this.emprendimiento.idSector?.idSector,
+        idSector: this.emprendimiento.idSector.idSector,
 
       }
+
+      this.homeService.createEmprendimiento(command).subscribe({
+        next: (result: Emprendimiento) => {
+          this.emprendimiento = result;
+          console.log('Emprendimiento creado', this.emprendimiento)
+          alert('¡El emprendimiento se ha creado exitosamente!');
+        },   error: (e) => {
+          console.error('Error al crear emprendimiento: ', e);
+          if (e.error) {
+            console.error('Error detallado: ', e.error);
+          }
+          alert('Hubo un error al crear el emprendimiento');
+        }
+
+        }
+      )
+      console.log(this.emprendimiento)
     }
 
     ngOnInit(): void {

@@ -6,7 +6,6 @@ export interface EmprendimientoCommand {
     montoRequerido: number;
     estado: boolean;
     urlImagen: string;
-    fechaInversion: string;
     idEmprendedor: number;
     idSector: number;
 }

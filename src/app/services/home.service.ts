@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Emprendimiento } from '../models/emprendimiento';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
-
+import { EmprendimientoCommand } from '../models/commands/EmprendimientoCommand';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,8 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  createEmprendimiento(emprendimiento: Emprendimiento): Observable<Emprendimiento>{
-    return this.http.post<Emprendimiento>(`${this.BASE_URL}/emprendimiento`, emprendimiento)
+  createEmprendimiento(command: EmprendimientoCommand): Observable<Emprendimiento>{
+    return this.http.post<Emprendimiento>(`${this.BASE_URL}/emprendimiento`, command)
   }
 
   getEmprendimientos(): Observable<any[]> {

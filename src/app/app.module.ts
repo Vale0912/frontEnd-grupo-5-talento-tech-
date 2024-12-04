@@ -12,8 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { VerDetalleComponent } from './components/ver-detalle/ver-detalle.component';
-
-import { HeaderComponent } from './components/header/header.component';
 import { CreateEmprendimientoComponent } from './components/create-emprendimiento/create-emprendimiento.component';
 
 
@@ -26,7 +24,6 @@ import { CreateEmprendimientoComponent } from './components/create-emprendimient
     FooterComponent,
     NavbarComponent,
     VerDetalleComponent,
-    HeaderComponent,
     CreateEmprendimientoComponent
   ],
   imports: [

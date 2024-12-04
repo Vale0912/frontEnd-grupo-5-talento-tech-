@@ -7,11 +7,10 @@
             <label for="titulo">Titulo</label>
             <input
               type="text"
+              placeholder="Ingrese el titulo de su emprendimiento"
               id="titulo"
               class="form-control"
               required
-              minlength="2"
-              maxlength="20"
               name="titulo"
               [(ngModel)]="emprendimiento.titulo"
               #titulo="ngModel"
@@ -32,6 +31,141 @@
               >
             </div>
           </div>
+
+          <div class="form-group mb-3">
+            <label for="descripcion">Descripción</label>
+            <textarea
+            placeholder="Ingrese una breve descripción de su emprendimiento"
+              id="descripcion"
+              class="form-control"
+              required
+              name="descripcion"
+              [(ngModel)]="emprendimiento.descripcion"
+              #descripcion="ngModel"
+            ></textarea>
+            <!--div de validaciones Alerts-->
+            <div
+              *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+              class="text-danger"
+            >
+              <small *ngIf="descripcion.errors?.['required']">
+                La descripcion es obligatoria</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="ubicacion">Ubicación</label>
+            <input
+              type="text"
+              placeholder="Ingrese la ubicación de su emprendimiento"
+              id="ubicacion"
+              class="form-control"
+              required
+              name="ubicacion"
+              [(ngModel)]="emprendimiento.ubicacion"
+              #ubicacion="ngModel"
+            />
+            <!--div de validaciones Alerts-->
+            <div
+              *ngIf="ubicacion.invalid && (ubicacion.dirty || ubicacion.touched)"
+              class="text-danger"
+            >
+              <small *ngIf="ubicacion.errors?.['required']">
+                La ubicacion es obligatoria</small
+              >
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="rendimiento">Rendimiento</label>
+            <input
+              type="number"
+              placeholder="Ingrese el rendimiento de su emprendimiento"
+              id="rendimiento"
+              class="form-control"
+              required
+              name="rendimiento"
+              [(ngModel)]="emprendimiento.rendimiento"
+              #rendimiento="ngModel"
+            />
+            <!--div de validaciones Alerts-->
+            <div
+              *ngIf="rendimiento.invalid && (rendimiento.dirty || rendimiento.touched)"
+              class="text-danger"
+            >
+              <small *ngIf="rendimiento.errors?.['required']">
+                El rendimiento es obligatorio</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="montoRequerido">Monto Requerido</label>
+            <input
+              type="number"
+              placeholder="Ingrese el monto requerido para su emprendimiento"
+              id="montoRequerido"
+              class="form-control"
+              required
+              name="montoRequerido"
+              [(ngModel)]="emprendimiento.montoRequerido"
+              #montoRequerido="ngModel"
+            />
+            <!--div de validaciones Alerts-->
+            <div
+              *ngIf="montoRequerido.invalid && (montoRequerido.dirty || montoRequerido.touched)"
+              class="text-danger"
+            >
+              <small *ngIf="montoRequerido.errors?.['required']">
+                El montoRequerido es obligatorio</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="urlImagen">Imagen</label>
+            <input
+              type="text"
+              placeholder="Ingrese la url de la imagen de su emprendimiento"
+              id="urlImagen"
+              class="form-control"
+              required
+              name="urlImagen"
+              [(ngModel)]="emprendimiento.urlImagen"
+              #urlImagen="ngModel"
+            />
+            <!--div de validaciones Alerts-->
+            <div
+              *ngIf="urlImagen.invalid && (urlImagen.dirty || urlImagen.touched)"
+              class="text-danger"
+            >
+              <small *ngIf="urlImagen.errors?.['required']">
+                La url de la imagen es obligatoria</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="idSector">Sector</label>
+            <select
+              id="idSector"
+              class="form-select"
+              required
+              name="idSector"
+              [(ngModel)]="emprendimiento.idSector"
+              #idSector="ngModel"
+            >
+              <option [ngValue]="null" disabled selected>Seleccione un sector</option>
+              <option *ngFor="let sector of sectores" [ngValue]="sector">
+                {{ sector.nombre }}
+              </option>
+            </select>
+            <!-- Validaciones -->
+            <div *ngIf="idSector.invalid && (idSector.dirty || idSector.touched)" class="text-danger">
+              <small *ngIf="idSector.errors?.['required']">El sector es obligatorio</small>
+            </div>
+        </div>
+  
   
             <div class="d-flex justify-content-center">
               <button
