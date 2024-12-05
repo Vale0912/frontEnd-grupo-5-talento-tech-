@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Logo -->
     <a class="navbar-brand" href="#">
-      <img src="../../../assets/images/Logo.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
+      <img src="../../../assets/images/logo.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
       CONECTACOL</a>
 
     <!-- Botón responsive -->
@@ -21,10 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-login">Iniciar Sesión</button>
+          <button [routerLink]="['/createUser']" class="btn btn-login">Registro</button>
         </li>
       </ul>
     </div>
